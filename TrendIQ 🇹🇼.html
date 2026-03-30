@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<!-- saved from url=(0218)file:///Users/minju/Library/Application%20Support/Claude/local-agent-mode-sessions/14c2c838-5de5-4fc7-ab6d-9edf4bb6e9fa/dcdf6d89-2336-4dd9-9dd8-240f72ddc0ed/local_14f42204-0ef5-4109-9e95-89444bf55f9f/outputs/index.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>TrendIQ 🇹🇼</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #F0F4F8; max-width: 480px; margin: 0 auto; min-height: 100vh; }
+
+    /* ── 헤더 ── */
+    .top-header {
+      background: linear-gradient(135deg, #064E3B, #065F46);
+      padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .header-left { display: flex; align-items: center; gap: 10px; }
+    .header-logo { font-size: 22px; }
+    .header-title { color: #fff; font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+    .header-sub { color: #6EE7B7; font-size: 10px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    .lang-switcher { display: flex; background: rgba(255,255,255,0.12); border-radius: 8px; overflow: hidden; }
+    .lang-btn { border: none; background: transparent; color: rgba(255,255,255,0.65); font-size: 10px; font-weight: 700; padding: 5px 8px; cursor: pointer; transition: all 0.2s; }
+    .lang-btn.active { background: rgba(255,255,255,0.25); color: #fff; }
+    .live-dot { width: 7px; height: 7px; background: #34D399; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+    /* ── 콘텐츠 ── */
+    .content { padding: 16px; padding-bottom: 86px; }
+
+    /* ── 하단 탭 ── */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 480px;
+      background: #fff; border-top: 1px solid #E5E7EB;
+      display: flex; z-index: 50;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.07);
+    }
+    .tab-btn { flex: 1; padding: 10px 4px 8px; border: none; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: all 0.2s; }
+    .tab-btn .t-icon { font-size: 19px; }
+    .tab-btn .t-label { font-size: 10px; font-weight: 600; color: #9CA3AF; }
+    .tab-btn.active .t-label { color: #059669; }
+    .tab-btn.active { background: #F0FDF4; }
+
+    /* ── 페이지 ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── 섹션 제목 ── */
+    .section-title { font-size: 13px; font-weight: 700; color: #374151; margin: 16px 0 10px; display: flex; align-items: center; gap: 6px; }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: #E5E7EB; }
+
+    /* ── 카드 ── */
+    .card { background: #fff; border-radius: 18px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04); }
+    .card-title { font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+
+    /* ── 홈 ── */
+    .home-hero {
+      background: linear-gradient(135deg, #064E3B, #0D9488);
+      border-radius: 22px; padding: 26px 22px; color: #fff; margin-bottom: 16px;
+      position: relative; overflow: hidden;
+    }
+    .home-hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 130px; height: 130px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .home-hero::after { content: ''; position: absolute; bottom: -50px; right: 40px; width: 100px; height: 100px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); color: #A7F3D0; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; letter-spacing: 0.5px; }
+    .home-hero h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; line-height: 1.3; }
+    .home-hero p { font-size: 13px; opacity: 0.85; margin-bottom: 18px; line-height: 1.5; }
+    .hero-btn { background: #fff; color: #059669; border: none; padding: 11px 24px; border-radius: 12px; font-weight: 700; font-size: 13px; cursor: pointer; transition: transform 0.15s; }
+    .hero-btn:active { transform: scale(0.97); }
+
+    .kpi-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .kpi-card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .kpi-card .kpi-val { font-size: 24px; font-weight: 800; color: #059669; }
+    .kpi-card .kpi-label { font-size: 11px; color: #6B7280; margin-top: 3px; font-weight: 500; }
+    .kpi-card .kpi-change { font-size: 11px; font-weight: 600; color: #059669; margin-top: 4px; }
+
+    .quick-item { background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .quick-item:active { transform: scale(0.98); }
+    .quick-item .qi-icon { font-size: 26px; width: 44px; height: 44px; background: #F0FDF4; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .quick-item .qi-text .qt { font-size: 13px; font-weight: 700; color: #111827; }
+    .quick-item .qi-text .qs { font-size: 11px; color: #6B7280; margin-top: 2px; }
+    .quick-item .qi-arrow { margin-left: auto; color: #D1D5DB; font-size: 18px; }
+
+    /* ── 트렌드 ── */
+    .chip-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; scrollbar-width: none; }
+    .chip-row::-webkit-scrollbar { display: none; }
+    .chip { padding: 7px 14px; border-radius: 999px; border: 1.5px solid #E5E7EB; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap; background: #fff; color: #6B7280; transition: all 0.2s; }
+    .chip.active { background: #059669; color: #fff; border-color: #059669; }
+
+    .buzz-item { margin-bottom: 14px; }
+    .buzz-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    .buzz-name { font-size: 12px; color: #1F2937; font-weight: 600; }
+    .buzz-tag { padding: 2px 7px; background: #ECFDF5; color: #059669; font-size: 10px; font-weight: 700; border-radius: 6px; margin-left: 6px; }
+    .buzz-score { font-size: 12px; color: #6B7280; font-weight: 700; }
+    .bar-bg { background: #F3F4F6; border-radius: 999px; height: 7px; }
+    .bar-fill { border-radius: 999px; height: 7px; transition: width 0.6s ease; }
+
+    .right-item { margin-bottom: 10px; }
+    .right-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    .right-name { font-size: 12px; color: #1F2937; font-weight: 500; }
+    .right-pct { font-size: 12px; color: #374151; font-weight: 700; }
+
+    .ai-box { background: linear-gradient(135deg, #F0FDF4, #ECFDF5); border-radius: 18px; padding: 18px; border: 1.5px solid #D1FAE5; margin-bottom: 12px; }
+    .ai-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .ai-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, #059669, #0D9488); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .ai-meta .ai-name { font-size: 13px; font-weight: 700; color: #064E3B; }
+    .ai-meta .ai-cat { font-size: 11px; color: #059669; font-weight: 500; margin-top: 1px; }
+    .ai-result { font-size: 13px; color: #065F46; font-weight: 500; line-height: 1.7; background: rgba(255,255,255,0.75); padding: 14px; border-radius: 12px; margin-bottom: 14px; }
+    .ai-placeholder { font-size: 13px; color: #6EE7B7; font-weight: 500; margin-bottom: 14px; }
+    .analyze-btn { width: 100%; padding: 14px; font-weight: 700; font-size: 14px; background: linear-gradient(135deg, #059669, #0D9488); color: #fff; border: none; border-radius: 13px; cursor: pointer; letter-spacing: 0.2px; transition: opacity 0.2s; }
+    .analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── 대시보드 ── */
+    .sub-overview { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    .sub-box { background: #fff; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .sub-box .sub-num { font-size: 22px; font-weight: 800; }
+    .sub-box .sub-label { font-size: 10px; color: #6B7280; margin-top: 3px; font-weight: 600; }
+    .sub-box .sub-change { font-size: 10px; margin-top: 3px; font-weight: 600; color: #059669; }
+    .sub-box.basic .sub-num { color: #3B82F6; }
+    .sub-box.pro .sub-num { color: #059669; }
+    .sub-box.ent .sub-num { color: #8B5CF6; }
+
+    .donut-wrap { display: flex; align-items: center; justify-content: space-between; padding: 4px 0 8px; }
+    .donut-canvas-wrap { position: relative; width: 130px; height: 130px; flex-shrink: 0; }
+    .donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; }
+    .donut-center .d-total { font-size: 24px; font-weight: 800; color: #111827; }
+    .donut-center .d-label { font-size: 10px; color: #9CA3AF; font-weight: 500; }
+    .donut-legend { flex: 1; padding-left: 18px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 11px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+    .legend-info { flex: 1; }
+    .legend-name { font-size: 12px; color: #374151; font-weight: 600; }
+    .legend-sub { font-size: 10px; color: #9CA3AF; }
+    .legend-pct { font-size: 13px; font-weight: 800; color: #111827; }
+
+    .month-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .month-label { font-size: 11px; color: #6B7280; width: 26px; flex-shrink: 0; font-weight: 600; }
+    .month-bar-bg { flex: 1; background: #F3F4F6; border-radius: 999px; height: 20px; overflow: hidden; }
+    .month-bar-fill { height: 20px; border-radius: 999px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
+    .month-bar-fill span { font-size: 10px; font-weight: 700; color: #fff; white-space: nowrap; }
+
+    .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .concept-card { background: #fff; border-radius: 16px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .cc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .cc-icon-wrap { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .cc-change { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; }
+    .cc-change.up { color: #059669; background: #ECFDF5; }
+    .cc-change.down { color: #EF4444; background: #FEF2F2; }
+    .cc-name { font-size: 11px; font-weight: 600; color: #6B7280; margin-bottom: 4px; }
+    .cc-score { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cc-bar-bg { background: #F3F4F6; border-radius: 999px; height: 5px; }
+    .cc-bar-fill { border-radius: 999px; height: 5px; }
+
+    .line-chart-container { height: 110px; margin: 8px 0 6px; position: relative; }
+    .x-labels { display: flex; justify-content: space-between; padding: 0 2px; }
+    .x-labels span { font-size: 10px; color: #9CA3AF; font-weight: 500; }
+    .chart-legend { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .chart-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #6B7280; font-weight: 600; }
+    .chart-legend-line { width: 16px; height: 3px; border-radius: 2px; }
+
+    .alert-item { display: flex; align-items: flex-start; gap: 12px; background: #fff; border-radius: 14px; padding: 13px 14px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .alert-icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .alert-icon.green { background: #ECFDF5; }
+    .alert-icon.orange { background: #FFFBEB; }
+    .alert-icon.red { background: #FEF2F2; }
+    .alert-text { font-size: 12px; color: #374151; line-height: 1.5; flex: 1; }
+    .alert-time { font-size: 10px; color: #9CA3AF; margin-top: 3px; }
+
+    /* ── 구독 ── */
+    .plan-header { text-align: center; margin-bottom: 22px; padding-top: 4px; }
+    .plan-header h2 { font-size: 24px; font-weight: 800; color: #111827; margin-bottom: 6px; letter-spacing: -0.5px; }
+    .plan-header p { font-size: 13px; color: #6B7280; line-height: 1.5; }
+
+    .plan-card { background: #fff; border-radius: 22px; padding: 22px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border: 2px solid transparent; transition: transform 0.2s; }
+    .plan-card.popular { border-color: #059669; background: linear-gradient(to bottom, #F0FDF4, #fff); }
+    .popular-badge { text-align: center; margin-bottom: 14px; }
+    .popular-badge span { background: #059669; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 999px; }
+    .plan-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .plan-name { font-size: 16px; font-weight: 800; color: #111827; }
+    .plan-for { font-size: 11px; color: #6B7280; font-weight: 500; margin-bottom: 12px; }
+    .plan-price-wrap { text-align: right; }
+    .plan-price { font-size: 28px; font-weight: 800; color: #059669; line-height: 1; }
+    .plan-period { font-size: 12px; color: #9CA3AF; font-weight: 500; }
+    .plan-divider { height: 1px; background: #F3F4F6; margin: 14px 0; }
+    .plan-features { list-style: none; margin-bottom: 18px; }
+    .plan-features li { font-size: 12px; color: #374151; padding: 6px 0; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+    .feat-check { width: 18px; height: 18px; background: #ECFDF5; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }
+    .plan-btn { width: 100%; padding: 14px; font-weight: 700; font-size: 14px; border: none; border-radius: 14px; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.2px; }
+    .plan-btn:active { opacity: 0.85; }
+    .plan-btn.primary { background: linear-gradient(135deg, #059669, #0D9488); color: #fff; }
+    .plan-btn.secondary { background: #F3F4F6; color: #374151; }
+    .plan-btn.outline { background: #fff; color: #059669; border: 2px solid #059669; }
+
+    .faq-item { background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; color: #111827; }
+    .faq-arrow { color: #9CA3AF; font-size: 14px; transition: transform 0.2s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { display: none; font-size: 12px; color: #6B7280; margin-top: 10px; line-height: 1.6; }
+    .faq-item.open .faq-a { display: block; }
+
+    .trust-row { display: flex; justify-content: center; gap: 20px; padding: 16px 0 4px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #9CA3AF; font-weight: 500; }
+
+    /* 문의 플랜 선택 버튼 */
+    .plan-sel-btn { padding: 9px 4px; border-radius: 10px; border: 1.5px solid #E5E7EB; background: #fff; font-size: 11px; font-weight: 700; color: #6B7280; cursor: pointer; transition: all 0.2s; }
+    .plan-sel-btn.active { background: #ECFDF5; border-color: #059669; color: #059669; }
+  </style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="top-header">
+  <div class="header-left">
+    <span class="header-logo">🇹🇼</span>
+    <div>
+      <div class="header-title">TrendIQ</div>
+      <div class="header-sub" id="header-sub">Taiwan Market Intelligence</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang(&#39;ko&#39;)">KO</button>
+      <button class="lang-btn" onclick="setLang(&#39;en&#39;)">EN</button>
+      <button class="lang-btn" onclick="setLang(&#39;zh&#39;)">繁</button>
+    </div>
+    <div class="live-dot"></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 홈 -->
+  <div class="page active" id="page-home">
+    <div class="home-hero">
+      <div class="hero-badge" id="hero-badge">AI POWERED · LIVE DATA</div>
+      <h2 id="hero-title">대만 시장<br>트렌드를 한눈에 👀</h2>
+      <p id="hero-desc">K-푸드, 뷰티, 펫, 디지털<br>대만 현지 마케터를 위한 AI 인사이트</p>
+      <button class="hero-btn" onclick="switchTab(&#39;trend&#39;)" id="hero-cta">트렌드 보기 →</button>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-val">4</div>
+        <div class="kpi-label" id="kpi-cat">분석 카테고리</div>
+        <div class="kpi-change">Dcard · PTT</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">93</div>
+        <div class="kpi-label" id="kpi-sub">활성 구독자</div>
+        <div class="kpi-change" id="kpi-change1">▲ 12% 이번 달</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">94k</div>
+        <div class="kpi-label" id="kpi-buzz">이번 주 버즈</div>
+        <div class="kpi-change">K-Food TOP</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">NT$318k</div>
+        <div class="kpi-label" id="kpi-rev">이번 달 매출</div>
+        <div class="kpi-change" id="kpi-change2">▲ 10% 전월比</div>
+      </div>
+    </div>
+
+    <div class="section-title" id="home-quick-title">📌 빠른 분석</div>
+    <div class="quick-item" onclick="switchTab(&#39;trend&#39;); setCategory(&#39;K-Food &amp; CVS&#39;)">
+      <div class="qi-icon">🍱</div>
+      <div class="qi-text"><div class="qt">K-Food &amp; CVS</div><div class="qs" id="qs-food">편의점 신제품 버즈량</div></div>
+      <span class="qi-arrow">›</span>
+    </div>
+    <div class="quick-item" onclick="switchTab(&#39;trend&#39;); setCategory(&#39;K-Beauty&#39;)">
+      <div class="qi-icon">💄</div>
+      <div class="qi-text"><div class="qt">K-Beauty</div><div class="qs" id="qs-beauty">성분 키워드 급상승</div></div>
+      <span class="qi-arrow">›</span>
+    </div>
+    <div class="quick-item" onclick="switchTab(&#39;trend&#39;); setCategory(&#39;Pet Premium&#39;)">
+      <div class="qi-icon">🐾</div>
+      <div class="qi-text"><div class="qt">Pet Premium</div><div class="qs" id="qs-pet">프리미엄 펫 시장 분석</div></div>
+      <span class="qi-arrow">›</span>
+    </div>
+    <div class="quick-item" onclick="switchTab(&#39;trend&#39;); setCategory(&#39;Digital Life&#39;)">
+      <div class="qi-icon">📱</div>
+      <div class="qi-text"><div class="qt">Digital Life</div><div class="qs" id="qs-digital">Z세대 구독 트렌드</div></div>
+      <span class="qi-arrow">›</span>
+    </div>
+  </div>
+
+  <!-- 트렌드 -->
+  <div class="page" id="page-trend">
+    <div class="chip-row" id="chip-row"><button class="chip active">🍱 K-Food &amp; CVS</button><button class="chip">💄 K-Beauty</button><button class="chip">🐾 Pet Premium</button><button class="chip">📱 Digital Life</button></div>
+    <div class="card">
+      <div class="card-title" id="buzz-label">🔥 편의점 K-푸드 버즈량</div>
+      <div id="buzz-list"><div class="buzz-item"><div class="buzz-row"><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"><span class="buzz-name">불닭 크림파스타 삼각김밥 (7-11)</span><span class="buzz-tag">NT$55</span></div><span class="buzz-score">94k</span></div><div class="bar-bg"><div class="bar-fill" style="background:#EF4444;width:94%"></div></div></div><div class="buzz-item"><div class="buzz-row"><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"><span class="buzz-name">유자 소금 감자칩 (全家)</span><span class="buzz-tag">NT$49</span></div><span class="buzz-score">81k</span></div><div class="bar-bg"><div class="bar-fill" style="background:#F59E0B;width:81%"></div></div></div><div class="buzz-item"><div class="buzz-row"><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"><span class="buzz-name">크림치즈 호떡 (萊爾富)</span><span class="buzz-tag">NT$42</span></div><span class="buzz-score">63k</span></div><div class="bar-bg"><div class="bar-fill" style="background:#3B82F6;width:63%"></div></div></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title" id="right-label">🏪 편의점별 K-푸드 입점 비율</div>
+      <div id="right-list"><div class="right-item"><div class="right-row"><span class="right-name">7-ELEVEN</span><span class="right-pct">72%</span></div><div class="bar-bg" style="height:6px"><div class="bar-fill" style="background:#EF4444;height:6px;width:72%"></div></div></div><div class="right-item"><div class="right-row"><span class="right-name">全家 FamilyMart</span><span class="right-pct">58%</span></div><div class="bar-bg" style="height:6px"><div class="bar-fill" style="background:#3B82F6;height:6px;width:58%"></div></div></div><div class="right-item"><div class="right-row"><span class="right-name">萊爾富 Hi-Life</span><span class="right-pct">39%</span></div><div class="bar-bg" style="height:6px"><div class="bar-fill" style="background:#8B5CF6;height:6px;width:39%"></div></div></div><div class="right-item"><div class="right-row"><span class="right-name">OK mart</span><span class="right-pct">24%</span></div><div class="bar-bg" style="height:6px"><div class="bar-fill" style="background:#F59E0B;height:6px;width:24%"></div></div></div></div>
+    </div>
+    <div class="ai-box">
+      <div class="ai-header">
+        <div class="ai-avatar">🐱</div>
+        <div class="ai-meta">
+          <div class="ai-name" id="ai-name-label">냥냥이 AI 분석가</div>
+          <div class="ai-cat" id="ai-title">🍱 K-Food &amp; CVS</div>
+        </div>
+      </div>
+      <p id="ai-msg" class="ai-placeholder">버튼을 눌러 이번 주 트렌드 분석을 시작하라냥! 🐾</p>
+      <button class="analyze-btn" id="analyze-btn" onclick="analyze()">트렌드 분석하기 ✨</button>
+    </div>
+  </div>
+
+  <!-- 대시보드 -->
+  <div class="page" id="page-dash">
+    <div class="section-title" id="dash-sub-title">📊 구독 현황</div>
+    <div class="sub-overview">
+      <div class="sub-box basic"><div class="sub-num">24</div><div class="sub-label">🌱 Basic</div><div class="sub-change">▲ 3</div></div>
+      <div class="sub-box pro"><div class="sub-num">61</div><div class="sub-label">⚡ Pro</div><div class="sub-change">▲ 7</div></div>
+      <div class="sub-box ent"><div class="sub-num">8</div><div class="sub-label">🏢 Ent.</div><div class="sub-change">▲ 1</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="dash-plan-ratio">💎 플랜별 비율</div>
+      <div class="donut-wrap">
+        <div class="donut-canvas-wrap">
+          <canvas id="donutChart" width="130" height="130"></canvas>
+          <div class="donut-center"><div class="d-total">93</div><div class="d-label" id="donut-label">총 구독자</div></div>
+        </div>
+        <div class="donut-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#3B82F6"></div>
+            <div class="legend-info"><div class="legend-name">Basic</div><div class="legend-sub" id="legend-basic-sub">24명</div></div>
+            <div class="legend-pct">26%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#059669"></div>
+            <div class="legend-info"><div class="legend-name">Pro</div><div class="legend-sub" id="legend-pro-sub">61명</div></div>
+            <div class="legend-pct">65%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#8B5CF6"></div>
+            <div class="legend-info"><div class="legend-name">Enterprise</div><div class="legend-sub" id="legend-ent-sub">8명</div></div>
+            <div class="legend-pct">9%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="dash-revenue">💰 월간 매출 추이 (NT$)</div>
+      <div id="monthChart" style="padding:8px 0"></div>
+    </div>
+
+    <div class="section-title" id="dash-concept-title">📌 카테고리 콘텐츠 현황</div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="cc-top">
+          <div class="cc-icon-wrap" style="background:#FEF2F2">🍱</div>
+          <div class="cc-change up">▲ 12%</div>
+        </div>
+        <div class="cc-name">K-Food &amp; CVS</div>
+        <div class="cc-score" style="color:#EF4444">94k</div>
+        <div class="cc-bar-bg"><div class="cc-bar-fill" style="background:#EF4444;width:94%"></div></div>
+      </div>
+      <div class="concept-card">
+        <div class="cc-top">
+          <div class="cc-icon-wrap" style="background:#FDF2F8">💄</div>
+          <div class="cc-change up">▲ 19%</div>
+        </div>
+        <div class="cc-name">K-Beauty</div>
+        <div class="cc-score" style="color:#EC4899">87k</div>
+        <div class="cc-bar-bg"><div class="cc-bar-fill" style="background:#EC4899;width:87%"></div></div>
+      </div>
+      <div class="concept-card">
+        <div class="cc-top">
+          <div class="cc-icon-wrap" style="background:#FFFBEB">🐾</div>
+          <div class="cc-change up">▲ 8%</div>
+        </div>
+        <div class="cc-name">Pet Premium</div>
+        <div class="cc-score" style="color:#F59E0B">72k</div>
+        <div class="cc-bar-bg"><div class="cc-bar-fill" style="background:#F59E0B;width:72%"></div></div>
+      </div>
+      <div class="concept-card">
+        <div class="cc-top">
+          <div class="cc-icon-wrap" style="background:#ECFDF5">📱</div>
+          <div class="cc-change down">▼ 3%</div>
+        </div>
+        <div class="cc-name">Digital Life</div>
+        <div class="cc-score" style="color:#10B981">91k</div>
+        <div class="cc-bar-bg"><div class="cc-bar-fill" style="background:#10B981;width:91%"></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="dash-weekly">📈 주간 버즈량 추이</div>
+      <div class="line-chart-container"><canvas id="lineChart"></canvas></div>
+      <div class="x-labels"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></div>
+      <div class="chart-legend">
+        <div class="chart-legend-item"><div class="chart-legend-line" style="background:#EF4444"></div>K-Food</div>
+        <div class="chart-legend-item"><div class="chart-legend-line" style="background:#EC4899"></div>K-Beauty</div>
+        <div class="chart-legend-item"><div class="chart-legend-line" style="background:#F59E0B"></div>Pet</div>
+        <div class="chart-legend-item"><div class="chart-legend-line" style="background:#10B981"></div>Digital</div>
+      </div>
+    </div>
+
+    <div class="section-title" id="dash-alert-title">🔔 최신 알림</div>
+    <div class="alert-item">
+      <div class="alert-icon green">📈</div>
+      <div><div class="alert-text" id="alert1">K-Beauty 세라마이드 키워드 버즈량 <strong>67% 급상승</strong> — Dcard 뷰티 게시판 기준</div><div class="alert-time" id="alert-time1">2시간 전</div></div>
+    </div>
+    <div class="alert-item">
+      <div class="alert-icon orange">👤</div>
+      <div><div class="alert-text" id="alert2">Pro 플랜 신규 구독자 <strong>3명</strong> 가입 — 이번 주 총 61명</div><div class="alert-time" id="alert-time2">5시간 전</div></div>
+    </div>
+    <div class="alert-item">
+      <div class="alert-icon green">🍱</div>
+      <div><div class="alert-text" id="alert3">K-Food 불닭 크림파스타 삼각김밥 <strong>SNS 버즈 TOP 1</strong> 유지 중</div><div class="alert-time" id="alert-time3">어제</div></div>
+    </div>
+    <div class="alert-item">
+      <div class="alert-icon red">⚠️</div>
+      <div><div class="alert-text" id="alert4">Digital Life 카테고리 버즈량 소폭 하락 — 모니터링 필요</div><div class="alert-time" id="alert-time4">어제</div></div>
+    </div>
+  </div>
+
+  <!-- 구독 -->
+  <div class="page" id="page-subscribe">
+    <div class="plan-header">
+      <h2 id="plan-main-title">구독 플랜 💎</h2>
+      <p id="plan-main-desc">대만 시장 인사이트를 무기로<br>경쟁에서 앞서가세요</p>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top">
+        <div><div class="plan-name">🌱 Basic</div><div class="plan-for" id="plan-basic-for">스타트업 · 1인 마케터</div></div>
+        <div class="plan-price-wrap"><div class="plan-price">NT$990</div><div class="plan-period" id="plan-per-month">/ 월</div></div>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="feat-check">✓</div><span id="f-b1">K-Food &amp; CVS 트렌드</span></li>
+        <li><div class="feat-check">✓</div><span id="f-b2">주간 버즈량 리포트</span></li>
+        <li><div class="feat-check">✓</div><span id="f-b3">AI 인사이트 월 10회</span></li>
+        <li><div class="feat-check">✓</div><span id="f-b4">이메일 지원</span></li>
+      </ul>
+      <button class="plan-btn secondary" onclick="goStripe(&#39;basic&#39;)" id="btn-basic">무료 체험 후 시작하기</button>
+    </div>
+
+    <div class="plan-card popular">
+      <div class="popular-badge"><span id="popular-label">🔥 가장 인기</span></div>
+      <div class="plan-top">
+        <div><div class="plan-name">⚡ Pro</div><div class="plan-for" id="plan-pro-for">중소기업 · 유통사</div></div>
+        <div class="plan-price-wrap"><div class="plan-price">NT$2,990</div><div class="plan-period" id="plan-per-month-pro">/ 월</div></div>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="feat-check">✓</div><span id="f-p1">전체 4개 카테고리</span></li>
+        <li><div class="feat-check">✓</div><span id="f-p2">실시간 버즈량 업데이트</span></li>
+        <li><div class="feat-check">✓</div><span id="f-p3">AI 인사이트 무제한</span></li>
+        <li><div class="feat-check">✓</div><span id="f-p4">PDF 리포트 다운로드</span></li>
+        <li><div class="feat-check">✓</div><span id="f-p5">카카오톡 알림 서비스</span></li>
+        <li><div class="feat-check">✓</div><span id="f-p6">우선 고객 지원</span></li>
+      </ul>
+      <button class="plan-btn primary" onclick="goStripe(&#39;pro&#39;)" id="btn-pro">Pro 시작하기 →</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top">
+        <div><div class="plan-name">🏢 Enterprise</div><div class="plan-for" id="plan-ent-for">대기업 · 한국→대만 진출사</div></div>
+        <div class="plan-price-wrap"><div class="plan-price" id="plan-ent-price" style="font-size:20px">협의</div><div class="plan-period" id="plan-per-month-ent">/ 월</div></div>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="feat-check">✓</div><span id="f-e1">Pro 전체 기능 포함</span></li>
+        <li><div class="feat-check">✓</div><span id="f-e2">맞춤형 카테고리 추가</span></li>
+        <li><div class="feat-check">✓</div><span id="f-e3">전담 분석가 배정</span></li>
+        <li><div class="feat-check">✓</div><span id="f-e4">월간 컨설팅 1회</span></li>
+        <li><div class="feat-check">✓</div><span id="f-e5">API 데이터 제공</span></li>
+      </ul>
+      <button class="plan-btn outline" onclick="goStripe(&#39;enterprise&#39;)" id="btn-ent">문의하기</button>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item">🔒 <span id="trust1">Stripe 안전결제</span></div>
+      <div class="trust-item">↩️ <span id="trust2">언제든 취소</span></div>
+      <div class="trust-item">📧 <span id="trust3">빠른 지원</span></div>
+    </div>
+
+    <div class="section-title" id="faq-title" style="margin-top:20px">❓ 자주 묻는 질문</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span id="faq-q1">데이터는 얼마나 자주 업데이트되나요?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-a" id="faq-a1">매주 월요일 오전 9시 KST에 업데이트됩니다. Pro 플랜은 실시간 업데이트가 제공됩니다.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span id="faq-q2">무료 체험 기간은 얼마인가요?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-a" id="faq-a2">Basic 플랜은 7일 무료 체험이 제공됩니다. 체험 기간 중 언제든지 취소할 수 있습니다.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span id="faq-q3">데이터 소스는 어디인가요?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-a" id="faq-a3">대만 최대 커뮤니티인 Dcard와 PTT, 그리고 momo·Shopee 등 주요 이커머스 플랫폼 데이터를 기반으로 합니다.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)" style="margin-bottom:8px">
+      <div class="faq-q"><span id="faq-q4">Enterprise 플랜은 어떻게 문의하나요?</span><span class="faq-arrow">▾</span></div>
+      <div class="faq-a" id="faq-a4">minnj2016@gmail.com으로 문의하시거나 문의하기 버튼을 눌러주세요. 24시간 내 답변 드립니다.</div>
+    </div>
+  </div>
+
+</div>
+
+  <!-- 문의 페이지 -->
+  <div class="page" id="page-contact">
+    <div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#064E3B,#0D9488);border-radius:22px;padding:24px 20px;">
+      <div style="color:#fff">
+        <div style="font-size:11px;font-weight:700;color:#6EE7B7;letter-spacing:0.5px;margin-bottom:8px" id="contact-badge">ENTERPRISE INQUIRY</div>
+        <div style="font-size:20px;font-weight:800;margin-bottom:6px" id="contact-title">문의하기 📬</div>
+        <div style="font-size:13px;opacity:0.85;line-height:1.5" id="contact-desc">24시간 내 답변드립니다.<br>minnj2016@gmail.com</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="contact-form-title">✏️ 문의 양식</div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:6px" id="lbl-name">이름 / 회사명</label>
+        <input id="inp-name" type="text" style="width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:12px;font-size:13px;outline:none;font-family:inherit;transition:border 0.2s" onfocus="this.style.borderColor=&#39;#059669&#39;" onblur="this.style.borderColor=&#39;#E5E7EB&#39;" placeholder="예) 김민주 / TrendIQ Korea">
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:6px" id="lbl-email">이메일</label>
+        <input id="inp-email" type="email" style="width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:12px;font-size:13px;outline:none;font-family:inherit;transition:border 0.2s" onfocus="this.style.borderColor=&#39;#059669&#39;" onblur="this.style.borderColor=&#39;#E5E7EB&#39;" placeholder="your@email.com">
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:6px" id="lbl-plan">관심 플랜</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px" id="plan-select-row">
+          <button class="plan-sel-btn active" onclick="selectPlan(this,&#39;Basic&#39;)">🌱 Basic</button>
+          <button class="plan-sel-btn" onclick="selectPlan(this,&#39;Pro&#39;)">⚡ Pro</button>
+          <button class="plan-sel-btn" onclick="selectPlan(this,&#39;Enterprise&#39;)">🏢 Ent.</button>
+        </div>
+        <input type="hidden" id="inp-plan" value="Basic">
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label style="font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:6px" id="lbl-budget">예산 범위</label>
+        <select id="inp-budget" style="width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:12px;font-size:13px;outline:none;font-family:inherit;background:#fff;transition:border 0.2s" onfocus="this.style.borderColor=&#39;#059669&#39;" onblur="this.style.borderColor=&#39;#E5E7EB&#39;">
+          <option value="" id="opt-budget0">선택해주세요</option>
+          <option value="NT$990" id="opt-budget1">NT$990 / 월 (Basic)</option>
+          <option value="NT$2990" id="opt-budget2">NT$2,990 / 월 (Pro)</option>
+          <option value="custom" id="opt-budget3">협의 (Enterprise)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label style="font-size:12px;font-weight:600;color:#374151;display:block;margin-bottom:6px" id="lbl-msg">문의 내용</label>
+        <textarea id="inp-msg" rows="4" style="width:100%;padding:12px 14px;border:1.5px solid #E5E7EB;border-radius:12px;font-size:13px;outline:none;font-family:inherit;resize:none;transition:border 0.2s" onfocus="this.style.borderColor=&#39;#059669&#39;" onblur="this.style.borderColor=&#39;#E5E7EB&#39;"></textarea>
+      </div>
+
+      <button class="analyze-btn" id="contact-submit-btn" onclick="submitContact()">문의 보내기 📬</button>
+
+      <div id="contact-success" style="display:none;text-align:center;padding:20px 0">
+        <div style="font-size:40px;margin-bottom:10px">✅</div>
+        <div style="font-size:15px;font-weight:700;color:#059669;margin-bottom:6px" id="success-title">문의가 접수됐어요!</div>
+        <div style="font-size:12px;color:#6B7280" id="success-desc">24시간 내 minnj2016@gmail.com으로 답변 드릴게요.</div>
+      </div>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item">🔒 <span id="contact-trust1">개인정보 보호</span></div>
+      <div class="trust-item">⚡ <span id="contact-trust2">24h 내 답변</span></div>
+      <div class="trust-item">🌏 <span id="contact-trust3">KO · EN · ZH</span></div>
+    </div>
+  </div>
+
+
+
+<!-- 하단 탭 -->
+<div class="bottom-nav">
+  <button class="tab-btn active" id="tab-home" onclick="switchTab(&#39;home&#39;)">
+    <span class="t-icon">🏠</span><span class="t-label" id="nav-home">홈</span>
+  </button>
+  <button class="tab-btn" id="tab-trend" onclick="switchTab(&#39;trend&#39;)">
+    <span class="t-icon">📊</span><span class="t-label" id="nav-trend">트렌드</span>
+  </button>
+  <button class="tab-btn" id="tab-dash" onclick="switchTab(&#39;dash&#39;)">
+    <span class="t-icon">📈</span><span class="t-label" id="nav-dash">대시보드</span>
+  </button>
+  <button class="tab-btn" id="tab-subscribe" onclick="switchTab(&#39;subscribe&#39;)">
+    <span class="t-icon">💎</span><span class="t-label" id="nav-sub">구독</span>
+  </button>
+  <button class="tab-btn" id="tab-contact" onclick="switchTab(&#39;contact&#39;)">
+    <span class="t-icon">📬</span><span class="t-label" id="nav-contact">문의</span>
+  </button>
+</div>
+
+<script>
+// ── 다국어 ──
+const i18n = {
+  ko: {
+    headerSub: 'Taiwan Market Intelligence',
+    heroBadge: 'AI POWERED · 실시간 데이터',
+    heroTitle: '대만 시장<br>트렌드를 한눈에 👀',
+    heroDesc: 'K-푸드, 뷰티, 펫, 디지털<br>대만 현지 마케터를 위한 AI 인사이트',
+    heroCta: '트렌드 보기 →',
+    kpiCat: '분석 카테고리', kpiSub: '활성 구독자', kpiBuzz: '이번 주 버즈', kpiRev: '이번 달 매출',
+    homeQuick: '📌 빠른 분석',
+    qsFood: '편의점 신제품 버즈량', qsBeauty: '성분 키워드 급상승', qsPet: '프리미엄 펫 시장 분석', qsDigital: 'Z세대 구독 트렌드',
+    dashSub: '📊 구독 현황', dashPlan: '💎 플랜별 비율', donutLabel: '총 구독자',
+    dashRevenue: '💰 월간 매출 추이 (NT$)', dashConcept: '📌 카테고리 콘텐츠 현황', dashWeekly: '📈 주간 버즈량 추이', dashAlert: '🔔 최신 알림',
+    aiName: '냥냥이 AI 분석가', analyzeCta: '트렌드 분석하기 ✨', analyzing: '분석 중...',
+    aiPlaceholder: '버튼을 눌러 이번 주 트렌드 분석을 시작하라냥! 🐾',
+    planTitle: '구독 플랜 💎', planDesc: '대만 시장 인사이트를 무기로<br>경쟁에서 앞서가세요',
+    planPerMonth: '/ 월', planBasicFor: '스타트업 · 1인 마케터', planProFor: '중소기업 · 유통사', planEntFor: '대기업 · 한국→대만 진출사', planEntPrice: '협의',
+    popular: '🔥 가장 인기', btnBasic: '무료 체험 후 시작하기', btnPro: 'Pro 시작하기 →', btnEnt: '문의하기',
+    fB1:'K-Food & CVS 트렌드', fB2:'주간 버즈량 리포트', fB3:'AI 인사이트 월 10회', fB4:'이메일 지원',
+    fP1:'전체 4개 카테고리', fP2:'실시간 버즈량 업데이트', fP3:'AI 인사이트 무제한', fP4:'PDF 리포트 다운로드', fP5:'카카오톡 알림 서비스', fP6:'우선 고객 지원',
+    fE1:'Pro 전체 기능 포함', fE2:'맞춤형 카테고리 추가', fE3:'전담 분석가 배정', fE4:'월간 컨설팅 1회', fE5:'API 데이터 제공',
+    trust1:'Stripe 안전결제', trust2:'언제든 취소', trust3:'빠른 지원',
+    faqTitle:'❓ 자주 묻는 질문',
+    faqQ1:'데이터는 얼마나 자주 업데이트되나요?', faqA1:'매주 월요일 오전 9시 KST에 업데이트됩니다. Pro 플랜은 실시간 업데이트가 제공됩니다.',
+    faqQ2:'무료 체험 기간은 얼마인가요?', faqA2:'Basic 플랜은 7일 무료 체험이 제공됩니다. 체험 기간 중 언제든지 취소할 수 있습니다.',
+    faqQ3:'데이터 소스는 어디인가요?', faqA3:'대만 최대 커뮤니티인 Dcard와 PTT, 그리고 momo·Shopee 등 주요 이커머스 데이터를 기반으로 합니다.',
+    faqQ4:'Enterprise 플랜은 어떻게 문의하나요?', faqA4:'minnj2016@gmail.com으로 문의하시거나 문의하기 버튼을 눌러주세요. 24시간 내 답변 드립니다.',
+    navHome:'홈', navTrend:'트렌드', navDash:'대시보드', navSub:'구독', navContact:'문의',
+    contactBadge:'ENTERPRISE INQUIRY', contactTitle:'문의하기 📬', contactDesc:'24시간 내 답변드립니다.\nminnj2016@gmail.com',
+    contactFormTitle:'✏️ 문의 양식',
+    lblName:'이름 / 회사명', lblEmail:'이메일', lblPlan:'관심 플랜', lblBudget:'예산 범위', lblMsg:'문의 내용',
+    optBudget0:'선택해주세요', optBudget1:'NT$990 / 월 (Basic)', optBudget2:'NT$2,990 / 월 (Pro)', optBudget3:'협의 (Enterprise)',
+    contactPlaceholder:'궁금한 점이나 요구사항을 자유롭게 적어주세요 😊',
+    contactSubmit:'문의 보내기 📬', successTitle:'문의가 접수됐어요!', successDesc:'24시간 내 minnj2016@gmail.com으로 답변 드릴게요.',
+    contactTrust1:'개인정보 보호', contactTrust2:'24h 내 답변', contactTrust3:'KO · EN · ZH',
+    alert1: 'K-Beauty 세라마이드 키워드 버즈량 <strong>67% 급상승</strong> — Dcard 뷰티 게시판 기준',
+    alert2: 'Pro 플랜 신규 구독자 <strong>3명</strong> 가입 — 이번 주 총 61명',
+    alert3: 'K-Food 불닭 크림파스타 삼각김밥 <strong>SNS 버즈 TOP 1</strong> 유지 중',
+    alert4: 'Digital Life 카테고리 버즈량 소폭 하락 — 모니터링 필요',
+    kpiChange1: '▲ 12% 이번 달',
+    kpiChange2: '▲ 10% 전월比',
+    alertTime1: '2시간 전', alertTime2: '5시간 전', alertTime3: '어제', alertTime4: '어제',
+    legendBasicSub: '24명', legendProSub: '61명', legendEntSub: '8명',
+  },
+  en: {
+    headerSub: 'Taiwan Market Intelligence',
+    heroBadge: 'AI POWERED · LIVE DATA',
+    heroTitle: 'Taiwan Market<br>Trends at a Glance 👀',
+    heroDesc: 'K-Food, Beauty, Pet, Digital<br>AI insights for Taiwan marketers',
+    heroCta: 'View Trends →',
+    kpiCat: 'Categories', kpiSub: 'Active Subscribers', kpiBuzz: 'Weekly Buzz', kpiRev: 'Monthly Revenue',
+    homeQuick: '📌 Quick Analysis',
+    qsFood: 'CVS new product buzz', qsBeauty: 'Ingredient keywords trending', qsPet: 'Premium pet market analysis', qsDigital: 'Gen-Z subscription trends',
+    dashSub: '📊 Subscription Overview', dashPlan: '💎 Plan Distribution', donutLabel: 'Total Subscribers',
+    dashRevenue: '💰 Monthly Revenue (NT$)', dashConcept: '📌 Category Content Status', dashWeekly: '📈 Weekly Buzz Trends', dashAlert: '🔔 Latest Alerts',
+    aiName: 'Nyangnyang AI Analyst', analyzeCta: 'Analyze Trends ✨', analyzing: 'Analyzing...',
+    aiPlaceholder: 'Press the button to start this week\'s trend analysis! 🐾',
+    planTitle: 'Subscription Plans 💎', planDesc: 'Stay ahead of the competition<br>with Taiwan market intelligence',
+    planPerMonth: '/ mo', planBasicFor: 'Startups · Solo marketers', planProFor: 'SMEs · Distributors', planEntFor: 'Enterprise · Korea→Taiwan expansion', planEntPrice: 'Custom',
+    popular: '🔥 Most Popular', btnBasic: 'Start Free Trial', btnPro: 'Start Pro →', btnEnt: 'Contact Us',
+    fB1:'K-Food & CVS Trends', fB2:'Weekly Buzz Report', fB3:'AI Insights 10x/mo', fB4:'Email Support',
+    fP1:'All 4 Categories', fP2:'Real-time Buzz Updates', fP3:'Unlimited AI Insights', fP4:'PDF Report Download', fP5:'KakaoTalk Alerts', fP6:'Priority Support',
+    fE1:'All Pro Features', fE2:'Custom Categories', fE3:'Dedicated Analyst', fE4:'Monthly Consulting', fE5:'API Data Access',
+    trust1:'Secure via Stripe', trust2:'Cancel Anytime', trust3:'Fast Support',
+    faqTitle:'❓ FAQ',
+    faqQ1:'How often is data updated?', faqA1:'Data is updated every Monday at 9am KST. Pro plan subscribers get real-time updates.',
+    faqQ2:'How long is the free trial?', faqA2:'The Basic plan comes with a 7-day free trial. You can cancel anytime during the trial.',
+    faqQ3:'Where does the data come from?', faqA3:"Data is sourced from Taiwan's top communities Dcard and PTT, plus major e-commerce platforms like momo and Shopee.",
+    faqQ4:'How do I inquire about Enterprise?', faqA4:'Email minnj2016@gmail.com or press Contact Us. We reply within 24 hours.',
+    navHome:'Home', navTrend:'Trends', navDash:'Dashboard', navSub:'Plans', navContact:'Inquiry',
+    contactBadge:'ENTERPRISE INQUIRY', contactTitle:'Contact Us 📬', contactDesc:'We reply within 24 hours.\nminnj2016@gmail.com',
+    contactFormTitle:'✏️ Inquiry Form',
+    lblName:'Name / Company', lblEmail:'Email', lblPlan:'Interested Plan', lblBudget:'Budget Range', lblMsg:'Message',
+    optBudget0:'Please select', optBudget1:'NT$990 / mo (Basic)', optBudget2:'NT$2,990 / mo (Pro)', optBudget3:'Custom (Enterprise)',
+    contactPlaceholder:'Feel free to share your questions or requirements 😊',
+    contactSubmit:'Send Inquiry 📬', successTitle:'Inquiry received!', successDesc:'We\'ll reply to minnj2016@gmail.com within 24 hours.',
+    contactTrust1:'Privacy Protected', contactTrust2:'Reply in 24h', contactTrust3:'KO · EN · ZH',
+    alert1: 'K-Beauty Ceramide keyword buzz <strong>up 67%</strong> — based on Dcard beauty board',
+    alert2: '<strong>3 new</strong> Pro subscribers — 61 total this week',
+    alert3: 'K-Food Buldak Cream Pasta Onigiri maintaining <strong>SNS Buzz TOP 1</strong>',
+    alert4: 'Digital Life category buzz slightly down — monitoring required',
+    kpiChange1: '▲ 12% this month',
+    kpiChange2: '▲ 10% vs last month',
+    alertTime1: '2 hours ago', alertTime2: '5 hours ago', alertTime3: 'Yesterday', alertTime4: 'Yesterday',
+    legendBasicSub: '24 users', legendProSub: '61 users', legendEntSub: '8 users',
+  },
+  zh: {
+    headerSub: '台灣市場情報平台',
+    heroBadge: 'AI 驅動 · 即時數據',
+    heroTitle: '台灣市場趨勢<br>一目了然 👀',
+    heroDesc: 'K-美食、美妝、寵物、數位<br>台灣行銷人的 AI 洞察工具',
+    heroCta: '查看趨勢 →',
+    kpiCat: '分析類別', kpiSub: '活躍訂閱者', kpiBuzz: '本週聲量', kpiRev: '本月營收',
+    homeQuick: '📌 快速分析',
+    qsFood: '便利商店新品聲量', qsBeauty: '成分關鍵字急升', qsPet: '高端寵物市場分析', qsDigital: 'Z世代訂閱趨勢',
+    dashSub: '📊 訂閱概況', dashPlan: '💎 方案比例', donutLabel: '總訂閱數',
+    dashRevenue: '💰 月度營收趨勢 (NT$)', dashConcept: '📌 類別內容現況', dashWeekly: '📈 週度聲量趨勢', dashAlert: '🔔 最新通知',
+    aiName: '喵喵 AI 分析師', analyzeCta: '分析趨勢 ✨', analyzing: '分析中...',
+    aiPlaceholder: '點擊按鈕開始本週趨勢分析喵！ 🐾',
+    planTitle: '訂閱方案 💎', planDesc: '以台灣市場洞察為武器<br>在競爭中領先一步',
+    planPerMonth: '/ 月', planBasicFor: '新創 · 個人行銷師', planProFor: '中小企業 · 經銷商', planEntFor: '大企業 · 韓→台拓展', planEntPrice: '洽談',
+    popular: '🔥 最受歡迎', btnBasic: '免費試用後開始', btnPro: '立即開始 Pro →', btnEnt: '聯絡我們',
+    fB1:'K-Food & CVS 趨勢', fB2:'週度聲量報告', fB3:'AI 洞察每月10次', fB4:'Email 支援',
+    fP1:'全部4個類別', fP2:'即時聲量更新', fP3:'無限 AI 洞察', fP4:'PDF 報告下載', fP5:'KakaoTalk 通知', fP6:'優先客服',
+    fE1:'包含所有 Pro 功能', fE2:'客製化類別新增', fE3:'專屬分析師', fE4:'每月諮詢一次', fE5:'API 數據提供',
+    trust1:'Stripe 安全付款', trust2:'隨時取消', trust3:'快速支援',
+    faqTitle:'❓ 常見問題',
+    faqQ1:'資料多久更新一次？', faqA1:'每週一早上 9 點 KST 更新。Pro 方案提供即時更新。',
+    faqQ2:'免費試用期多長？', faqA2:'Basic 方案提供 7 天免費試用。試用期間可隨時取消。',
+    faqQ3:'資料來源是哪裡？', faqA3:'資料來源為台灣最大社群 Dcard 與 PTT，以及 momo、蝦皮等主要電商平台。',
+    faqQ4:'Enterprise 方案如何諮詢？', faqA4:'請來信 minnj2016@gmail.com 或點擊聯絡我們，我們將於 24 小時內回覆。',
+    navHome:'首頁', navTrend:'趨勢', navDash:'儀表板', navSub:'訂閱', navContact:'諮詢',
+    contactBadge:'企業方案諮詢', contactTitle:'聯絡我們 📬', contactDesc:'24小時內回覆。\nminnj2016@gmail.com',
+    contactFormTitle:'✏️ 諮詢表單',
+    lblName:'姓名 / 公司名稱', lblEmail:'電子郵件', lblPlan:'感興趣的方案', lblBudget:'預算範圍', lblMsg:'諮詢內容',
+    optBudget0:'請選擇', optBudget1:'NT$990 / 月 (Basic)', optBudget2:'NT$2,990 / 月 (Pro)', optBudget3:'洽談 (Enterprise)',
+    contactPlaceholder:'請自由填寫您的問題或需求 😊',
+    contactSubmit:'送出諮詢 📬', successTitle:'諮詢已收到！', successDesc:'我們將於24小時內回覆至 minnj2016@gmail.com。',
+    contactTrust1:'隱私保護', contactTrust2:'24h 內回覆', contactTrust3:'KO · EN · ZH',
+    alert1: 'K-Beauty 神經醯胺關鍵字聲量 <strong>急升 67%</strong> — 基於 Dcard 美妝版',
+    alert2: 'Pro 方案新增訂閱者 <strong>3 名</strong> — 本週共 61 名',
+    alert3: 'K-Food 불닭奶油義大利麵飯糰 <strong>SNS 聲量 TOP 1</strong> 持續',
+    alert4: 'Digital Life 類別聲量小幅下滑 — 需持續監控',
+    kpiChange1: '▲ 12% 本月',
+    kpiChange2: '▲ 10% 較上月',
+    alertTime1: '2 小時前', alertTime2: '5 小時前', alertTime3: '昨天', alertTime4: '昨天',
+    legendBasicSub: '24人', legendProSub: '61人', legendEntSub: '8人',
+  }
+};
+
+let lang = 'ko';
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active');
+  applyLang();
+}
+
+function applyLang() {
+  const t = i18n[lang];
+  const set = (id, val) => { const el = document.getElementById(id); if(el) el.innerHTML = val; };
+  set('header-sub', t.headerSub);
+  set('hero-badge', t.heroBadge); set('hero-title', t.heroTitle); set('hero-desc', t.heroDesc); set('hero-cta', t.heroCta);
+  set('kpi-cat', t.kpiCat); set('kpi-sub', t.kpiSub); set('kpi-buzz', t.kpiBuzz); set('kpi-rev', t.kpiRev);
+  set('home-quick-title', t.homeQuick);
+  set('qs-food', t.qsFood); set('qs-beauty', t.qsBeauty); set('qs-pet', t.qsPet); set('qs-digital', t.qsDigital);
+  set('dash-sub-title', t.dashSub); set('dash-plan-ratio', t.dashPlan); set('donut-label', t.donutLabel);
+  set('dash-revenue', t.dashRevenue); set('dash-concept-title', t.dashConcept); set('dash-weekly', t.dashWeekly); set('dash-alert-title', t.dashAlert);
+  set('ai-name-label', t.aiName);
+  const analyzeBtn = document.getElementById('analyze-btn');
+  if(analyzeBtn && !analyzeBtn.disabled) analyzeBtn.textContent = t.analyzeCta;
+  const aiMsg = document.getElementById('ai-msg');
+  if(aiMsg && aiMsg.className === 'ai-placeholder') aiMsg.textContent = t.aiPlaceholder;
+  set('plan-main-title', t.planTitle); set('plan-main-desc', t.planDesc);
+  set('plan-per-month', t.planPerMonth); set('plan-basic-for', t.planBasicFor); set('plan-pro-for', t.planProFor); set('plan-ent-for', t.planEntFor); set('plan-ent-price', t.planEntPrice);
+  set('popular-label', t.popular); set('btn-basic', t.btnBasic); set('btn-pro', t.btnPro); set('btn-ent', t.btnEnt);
+  set('f-b1',t.fB1);set('f-b2',t.fB2);set('f-b3',t.fB3);set('f-b4',t.fB4);
+  set('f-p1',t.fP1);set('f-p2',t.fP2);set('f-p3',t.fP3);set('f-p4',t.fP4);set('f-p5',t.fP5);set('f-p6',t.fP6);
+  set('f-e1',t.fE1);set('f-e2',t.fE2);set('f-e3',t.fE3);set('f-e4',t.fE4);set('f-e5',t.fE5);
+  set('trust1',t.trust1);set('trust2',t.trust2);set('trust3',t.trust3);
+  set('faq-title',t.faqTitle);
+  set('faq-q1',t.faqQ1);set('faq-a1',t.faqA1);set('faq-q2',t.faqQ2);set('faq-a2',t.faqA2);
+  set('faq-q3',t.faqQ3);set('faq-a3',t.faqA3);set('faq-q4',t.faqQ4);set('faq-a4',t.faqA4);
+  set('nav-home',t.navHome);set('nav-trend',t.navTrend);set('nav-dash',t.navDash);set('nav-sub',t.navSub);set('nav-contact',t.navContact);
+  set('contact-badge',t.contactBadge);set('contact-title',t.contactTitle);
+  set('contact-form-title',t.contactFormTitle);
+  set('lbl-name',t.lblName);set('lbl-email',t.lblEmail);set('lbl-plan',t.lblPlan);set('lbl-budget',t.lblBudget);set('lbl-msg',t.lblMsg);
+  set('opt-budget0',t.optBudget0);set('opt-budget1',t.optBudget1);set('opt-budget2',t.optBudget2);set('opt-budget3',t.optBudget3);
+  set('contact-submit-btn',t.contactSubmit);
+  set('success-title',t.successTitle);set('success-desc',t.successDesc);
+  set('contact-trust1',t.contactTrust1);set('contact-trust2',t.contactTrust2);set('contact-trust3',t.contactTrust3);
+  const contactDesc = document.getElementById('contact-desc');
+  if(contactDesc) contactDesc.innerHTML = t.contactDesc.replace('\n','<br>');
+  const textarea = document.getElementById('inp-msg');
+  if(textarea) textarea.placeholder = t.contactPlaceholder;
+  set('alert1',t.alert1);set('alert2',t.alert2);set('alert3',t.alert3);set('alert4',t.alert4);
+  set('kpi-change1', t.kpiChange1); set('kpi-change2', t.kpiChange2);
+  set('alert-time1', t.alertTime1); set('alert-time2', t.alertTime2);
+  set('alert-time3', t.alertTime3); set('alert-time4', t.alertTime4);
+  set('legend-basic-sub', t.legendBasicSub); set('legend-pro-sub', t.legendProSub); set('legend-ent-sub', t.legendEntSub);
+  set('plan-per-month-pro', t.planPerMonth); set('plan-per-month-ent', t.planPerMonth);
+}
+
+// ── 트렌드 데이터 ──
+const trendData = {
+  'K-Food & CVS': {
+    icon: '🍱',
+    insight: { ko: '이번 주 7-11에 신규 입점한 불닭 크림파스타 삼각김밥이 입점 3일 만에 SNS 버즈량 TOP 1을 기록했다냥! 全家의 K-푸드 교체 주기가 가장 빠르니 입점 타이밍 공략을 추천한다냥! 🍱🐾', en: "7-11's new Buldak Cream Pasta Onigiri hit SNS Buzz TOP 1 just 3 days after launch! FamilyMart has the fastest K-food rotation cycle — perfect timing to target! 🍱🐾", zh: '7-11 新上架的불닭奶油義大利麵飯糰上市 3 天就拿下 SNS 聲量 TOP 1！全家便利商店的 K-food 替換週期最快，建議把握進架時機！🍱🐾' },
+    buzzLabel: { ko: '🔥 편의점 K-푸드 버즈량', en: '🔥 CVS K-Food Buzz', zh: '🔥 便利商店 K-Food 聲量' },
+    buzzData: [
+      { name: { ko: '불닭 크림파스타 삼각김밥 (7-11)', en: 'Buldak Cream Pasta Onigiri (7-11)', zh: '불닭奶油義式飯糰 (7-11)' }, price: 'NT$55', score: 94, color: '#EF4444' },
+      { name: { ko: '유자 소금 감자칩 (全家)', en: 'Yuzu Salt Potato Chips (FamilyMart)', zh: '柚香鹽味洋芋片 (全家)' }, price: 'NT$49', score: 81, color: '#F59E0B' },
+      { name: { ko: '크림치즈 호떡 (萊爾富)', en: 'Cream Cheese Hotteok (Hi-Life)', zh: '奶油起司車輪餅 (萊爾富)' }, price: 'NT$42', score: 63, color: '#3B82F6' }
+    ],
+    rightLabel: { ko: '🏪 편의점별 K-푸드 입점 비율', en: '🏪 K-Food Listing Rate by CVS', zh: '🏪 各便利商店 K-Food 上架比例' },
+    rightData: [
+      { name: { ko: '7-ELEVEN', en: '7-ELEVEN', zh: '7-ELEVEN' }, share: 72, color: '#EF4444' },
+      { name: { ko: '全家 FamilyMart', en: 'FamilyMart (全家)', zh: '全家 FamilyMart' }, share: 58, color: '#3B82F6' },
+      { name: { ko: '萊爾富 Hi-Life', en: 'Hi-Life (萊爾富)', zh: '萊爾富 Hi-Life' }, share: 39, color: '#8B5CF6' },
+      { name: { ko: 'OK mart', en: 'OK mart', zh: 'OK mart' }, share: 24, color: '#F59E0B' }
+    ],
+  },
+  'K-Beauty': {
+    icon: '💄',
+    insight: { ko: '이번 주 대만 Dcard 뷰티 게시판에서 세라마이드 키워드가 전주 대비 67% 급상승했다냥! K-뷰티 스킨케어 중 세라마이드 함유 제품 홍보에 집중할 최적의 타이밍이다냥! 💄🐾', en: 'Ceramide keywords on Dcard beauty board surged 67% vs last week! Perfect timing to push ceramide-containing K-beauty skincare products! 💄🐾', zh: '本週 Dcard 美妝版「神經醯胺」關鍵字較上週急升 67%！正是主推含神經醯胺 K-beauty 護膚品的最佳時機！💄🐾' },
+    buzzLabel: { ko: '🔥 K-뷰티 성분 키워드', en: '🔥 K-Beauty Ingredient Keywords', zh: '🔥 K-Beauty 成分關鍵字' },
+    buzzData: [
+      { name: { ko: '세라마이드 (Ceramide)', en: 'Ceramide', zh: '神經醯胺 (Ceramide)' }, price: '+67%', score: 95, color: '#EC4899' },
+      { name: { ko: '나이아신아마이드', en: 'Niacinamide', zh: '菸鹼醯胺 (Niacinamide)' }, price: '+43%', score: 76, color: '#8B5CF6' },
+      { name: { ko: '판테놀 (Panthenol)', en: 'Panthenol', zh: '泛醇 (Panthenol)' }, price: '+38%', score: 61, color: '#06B6D4' }
+    ],
+    rightLabel: { ko: '📱 K-뷰티 구매 채널', en: '📱 K-Beauty Purchase Channels', zh: '📱 K-Beauty 購買管道' },
+    rightData: [
+      { name: { ko: 'momo 購物網', en: 'momo Shopping', zh: 'momo 購物網' }, share: 64, color: '#EC4899' },
+      { name: { ko: 'Shopee 蝦皮', en: 'Shopee', zh: 'Shopee 蝦皮' }, share: 51, color: '#F97316' },
+      { name: { ko: 'WATSONS 屈臣氏', en: 'Watsons', zh: 'WATSONS 屈臣氏' }, share: 38, color: '#06B6D4' },
+      { name: { ko: 'Costco 好市多', en: 'Costco', zh: 'Costco 好市多' }, share: 22, color: '#3B82F6' }
+    ],
+  },
+  'Pet Premium': {
+    icon: '🐾',
+    insight: { ko: '대만 프리미엄 펫푸드 시장이 전년 대비 34% 성장했다냥! 그레인프리 사료와 수제 간식에서 소비 양극화가 뚜렷하다냥! 반려묘 용품 성장세가 가파르니 고양이 타겟 콘텐츠를 먼저 공략하라냥! 🐱🐾', en: "Taiwan's premium pet food market grew 34% YoY! Polarization between grain-free feed and handmade treats is clear. Cat-related products are growing fastest — target feline content first! 🐱🐾", zh: '台灣高端寵物食品市場年增 34%！無穀飼料與手工零食消費兩極化明顯。貓咪用品成長最快，建議優先切入貓咪相關內容！🐱🐾' },
+    buzzLabel: { ko: '🔥 프리미엄 펫 제품 버즈량', en: '🔥 Premium Pet Product Buzz', zh: '🔥 高端寵物產品聲量' },
+    buzzData: [
+      { name: { ko: '그레인프리 연어 사료 (貓)', en: 'Grain-Free Salmon Food (Cat)', zh: '無穀鮭魚飼料 (貓)' }, price: 'NT$1,280', score: 88, color: '#F59E0B' },
+      { name: { ko: '수제 닭가슴살 간식 (犬)', en: 'Homemade Chicken Treat (Dog)', zh: '手工雞胸肉零食 (犬)' }, price: 'NT$320', score: 74, color: '#10B981' },
+      { name: { ko: '고양이 스마트 급수기', en: 'Smart Cat Water Fountain', zh: '貓咪智慧飲水機' }, price: 'NT$890', score: 52, color: '#8B5CF6' }
+    ],
+    rightLabel: { ko: '🐱 반려동물 종류별 소비', en: '🐱 Spending by Pet Type', zh: '🐱 各寵物種類消費占比' },
+    rightData: [
+      { name: { ko: '반려묘 (貓)', en: 'Cats', zh: '貓咪' }, share: 61, color: '#F59E0B' },
+      { name: { ko: '반려견 (犬)', en: 'Dogs', zh: '狗狗' }, share: 48, color: '#10B981' },
+      { name: { ko: '소동물 (小動物)', en: 'Small Animals', zh: '小動物' }, share: 21, color: '#8B5CF6' },
+      { name: { ko: '파충류 (爬蟲類)', en: 'Reptiles', zh: '爬蟲類' }, share: 9, color: '#6B7280' }
+    ],
+  },
+  'Digital Life': {
+    icon: '📱',
+    insight: { ko: '대만 Z세대의 월평균 구독 서비스 지출이 NT$850을 돌파했다냥! ChatGPT Plus가 신규 지출 항목 3위로 급부상했다냥! AI 생산성 앱 번들 패키지 전략을 노려보라냥! 📱🐾', en: "Taiwan Gen-Z average monthly subscription spend surpassed NT$850! ChatGPT Plus rocketed to #3 in new spending items. Time to eye the AI productivity app bundle strategy! 📱🐾", zh: '台灣 Z 世代月均訂閱服務支出突破 NT$850！ChatGPT Plus 急升為新增支出第 3 名！可考慮 AI 生產力 App 套裝方案策略！📱🐾' },
+    buzzLabel: { ko: '🔥 Z세대 구독 서비스 순위', en: '🔥 Gen-Z Subscription Rankings', zh: '🔥 Z世代訂閱服務排行' },
+    buzzData: [
+      { name: { ko: 'Netflix 넷플릭스', en: 'Netflix', zh: 'Netflix 網飛' }, price: 'NT$390/月', score: 91, color: '#EF4444' },
+      { name: { ko: 'ChatGPT Plus', en: 'ChatGPT Plus', zh: 'ChatGPT Plus' }, price: 'NT$625/月', score: 79, color: '#10B981' },
+      { name: { ko: 'Spotify 스포티파이', en: 'Spotify', zh: 'Spotify' }, price: 'NT$149/月', score: 66, color: '#1DB954' }
+    ],
+    rightLabel: { ko: '💳 Z세대 결제 수단', en: '💳 Gen-Z Payment Methods', zh: '💳 Z世代付款方式' },
+    rightData: [
+      { name: { ko: 'LINE Pay', en: 'LINE Pay', zh: 'LINE Pay' }, share: 71, color: '#06C755' },
+      { name: { ko: 'JKO Pay', en: 'JKO Pay', zh: 'JKO Pay 街口支付' }, share: 49, color: '#EF4444' },
+      { name: { ko: 'Apple Pay', en: 'Apple Pay', zh: 'Apple Pay' }, share: 35, color: '#1F2937' },
+      { name: { ko: 'Pi 拍錢包', en: 'Pi Wallet', zh: 'Pi 拍錢包' }, share: 18, color: '#F59E0B' }
+    ],
+  },
+};
+
+const categories = Object.keys(trendData);
+let active = categories[0];
+
+function switchTab(tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (tab === 'trend') renderTrend();
+  if (tab === 'dash') renderDash();
+}
+
+function setCategory(cat) { active = cat; renderTrend(); }
+
+function buildChips() {
+  const row = document.getElementById('chip-row');
+  row.innerHTML = '';
+  categories.forEach(cat => {
+    const chip = document.createElement('button');
+    chip.className = 'chip' + (cat === active ? ' active' : '');
+    chip.textContent = trendData[cat].icon + ' ' + cat;
+    chip.onclick = () => { active = cat; renderTrend(); };
+    row.appendChild(chip);
+  });
+}
+
+function renderTrend() {
+  const d = trendData[active];
+  buildChips();
+  document.getElementById('ai-title').textContent = d.icon + ' ' + active;
+  const msg = document.getElementById('ai-msg');
+  if(msg.className !== 'ai-result') {
+    msg.className = 'ai-placeholder';
+    msg.textContent = i18n[lang].aiPlaceholder;
+  }
+  const btn = document.getElementById('analyze-btn');
+  if(!btn.disabled) btn.textContent = i18n[lang].analyzeCta;
+  document.getElementById('buzz-label').textContent = d.buzzLabel[lang] || d.buzzLabel.ko;
+  const buzzList = document.getElementById('buzz-list');
+  buzzList.innerHTML = '';
+  d.buzzData.forEach(item => {
+    const n = typeof item.name === 'object' ? (item.name[lang] || item.name.ko) : item.name;
+    buzzList.innerHTML += `<div class="buzz-item"><div class="buzz-row"><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap"><span class="buzz-name">${n}</span><span class="buzz-tag">${item.price}</span></div><span class="buzz-score">${item.score}k</span></div><div class="bar-bg"><div class="bar-fill" style="background:${item.color};width:${item.score}%"></div></div></div>`;
+  });
+  document.getElementById('right-label').textContent = d.rightLabel[lang] || d.rightLabel.ko;
+  const rightList = document.getElementById('right-list');
+  rightList.innerHTML = '';
+  d.rightData.forEach(item => {
+    const n = typeof item.name === 'object' ? (item.name[lang] || item.name.ko) : item.name;
+    rightList.innerHTML += `<div class="right-item"><div class="right-row"><span class="right-name">${n}</span><span class="right-pct">${item.share}%</span></div><div class="bar-bg" style="height:6px"><div class="bar-fill" style="background:${item.color};height:6px;width:${item.share}%"></div></div></div>`;
+  });
+}
+
+function analyze() {
+  const btn = document.getElementById('analyze-btn');
+  const msg = document.getElementById('ai-msg');
+  btn.disabled = true; btn.textContent = i18n[lang].analyzing;
+  msg.className = 'ai-placeholder';
+  msg.textContent = lang === 'zh' ? '正在分析台灣 SNS 數據喵... 🔍' : lang === 'en' ? 'Analyzing Taiwan SNS data... 🔍' : '대만 SNS 데이터를 분석하는 중이다냥... 🔍';
+  setTimeout(() => {
+    btn.disabled = false; btn.textContent = i18n[lang].analyzeCta;
+    msg.className = 'ai-result';
+    msg.textContent = (trendData[active].insight[lang] || trendData[active].insight.ko);
+  }, 1500);
+}
+
+function goStripe(plan) {
+  const links = { basic: 'https://buy.stripe.com/YOUR_BASIC_LINK', pro: 'https://buy.stripe.com/YOUR_PRO_LINK', enterprise: 'mailto:minnj2016@gmail.com?subject=Enterprise 문의' };
+  if (plan === 'enterprise') { window.location.href = links.enterprise; }
+  else { alert(lang === 'en' ? 'Connect your Stripe Payment Link in the code to activate payment! 🐾' : lang === 'zh' ? '請在程式碼中設定 Stripe 付款連結以啟用付款！🐾' : 'Stripe 결제 링크를 코드에 넣어주세요 🐾'); }
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+function selectPlan(btn, plan) {
+  document.querySelectorAll('.plan-sel-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('inp-plan').value = plan;
+  const budgetMap = { Basic: 'NT$990', Pro: 'NT$2990', Enterprise: 'custom' };
+  document.getElementById('inp-budget').value = budgetMap[plan] || '';
+}
+
+function submitContact() {
+  const name = document.getElementById('inp-name').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const plan = document.getElementById('inp-plan').value;
+  const budget = document.getElementById('inp-budget').value;
+  const msg = document.getElementById('inp-msg').value.trim();
+  const t = i18n[lang];
+
+  if (!name || !email || !msg) {
+    const warn = lang === 'en' ? 'Please fill in name, email and message.' : lang === 'zh' ? '請填寫姓名、電子郵件及諮詢內容。' : '이름, 이메일, 문의 내용을 입력해주세요.';
+    alert(warn); return;
+  }
+
+  const subject = encodeURIComponent(`[TrendIQ ${plan}] ${name} 문의`);
+  const body = encodeURIComponent(
+    `이름/회사: ${name}\n이메일: ${email}\n플랜: ${plan}\n예산: ${budget}\n\n문의 내용:\n${msg}`
+  );
+  window.location.href = `mailto:minnj2016@gmail.com?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
+    document.getElementById('contact-submit-btn').style.display = 'none';
+    document.getElementById('inp-name').style.display = 'none';
+    document.getElementById('inp-email').style.display = 'none';
+    document.getElementById('inp-msg').style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+  }, 800);
+}
+
+// ── 대시보드 차트 ──
+let dashReady = false;
+function renderDash() {
+  if (dashReady) return;
+  dashReady = true;
+  drawDonut(); drawMonthBars(); drawLine();
+}
+
+function drawDonut() {
+  const canvas = document.getElementById('donutChart');
+  const ctx = canvas.getContext('2d');
+  const cx = 65, cy = 65, r = 55, inner = 34;
+  const slices = [{ pct: 0.26, color: '#3B82F6' },{ pct: 0.65, color: '#059669' },{ pct: 0.09, color: '#8B5CF6' }];
+  const gap = 0.04;
+  let start = -Math.PI / 2;
+  slices.forEach(s => {
+    const end = start + s.pct * 2 * Math.PI - gap;
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, start, end); ctx.closePath();
+    ctx.fillStyle = s.color; ctx.fill(); start = end + gap;
+  });
+  ctx.beginPath(); ctx.arc(cx, cy, inner, 0, 2 * Math.PI);
+  ctx.fillStyle = '#fff'; ctx.fill();
+}
+
+function drawMonthBars() {
+  const months = [
+    { label: lang === 'zh' ? '10月' : '10월', val: 142000, color: '#D1FAE5' },
+    { label: lang === 'zh' ? '11月' : '11월', val: 198000, color: '#6EE7B7' },
+    { label: lang === 'zh' ? '12月' : '12월', val: 231000, color: '#34D399' },
+    { label: lang === 'zh' ? '1月' : lang === 'en' ? 'Jan' : '1월', val: 267000, color: '#10B981' },
+    { label: lang === 'zh' ? '2月' : lang === 'en' ? 'Feb' : '2월', val: 289000, color: '#059669' },
+    { label: lang === 'zh' ? '3月' : lang === 'en' ? 'Mar' : '3월', val: 318000, color: '#047857' },
+  ];
+  const max = 318000;
+  const wrap = document.getElementById('monthChart');
+  wrap.innerHTML = '';
+  months.forEach(m => {
+    const pct = Math.round((m.val / max) * 100);
+    const fmt = (m.val / 1000).toFixed(0) + 'k';
+    wrap.innerHTML += `<div class="month-bar-row"><span class="month-label">${m.label}</span><div class="month-bar-bg"><div class="month-bar-fill" style="background:${m.color};width:${pct}%"><span>NT$${fmt}</span></div></div></div>`;
+  });
+}
+
+function drawLine() {
+  const canvas = document.getElementById('lineChart');
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 400; canvas.height = 110;
+  const ctx = canvas.getContext('2d');
+  const datasets = [
+    { color: '#EF4444', data: [62,71,78,85,90,94] },
+    { color: '#EC4899', data: [55,60,68,75,82,87] },
+    { color: '#F59E0B', data: [48,52,58,63,69,72] },
+    { color: '#10B981', data: [88,91,95,94,92,91] },
+  ];
+  const W = canvas.width, H = canvas.height;
+  const pad = { top:8, bottom:8, left:6, right:6 };
+  const maxV = 100, minV = 40;
+  const xStep = (W - pad.left - pad.right) / 5;
+  ctx.strokeStyle = '#F3F4F6'; ctx.lineWidth = 1;
+  [40,60,80,100].forEach(v => {
+    const y = pad.top + (H-pad.top-pad.bottom) * (1-(v-minV)/(maxV-minV));
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W-pad.right, y); ctx.stroke();
+  });
+  datasets.forEach(ds => {
+    ctx.beginPath();
+    ds.data.forEach((v,i) => {
+      const x = pad.left + i*xStep;
+      const y = pad.top + (H-pad.top-pad.bottom)*(1-(v-minV)/(maxV-minV));
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    });
+    ctx.strokeStyle = ds.color; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.stroke();
+    ds.data.forEach((v,i) => {
+      const x = pad.left + i*xStep;
+      const y = pad.top + (H-pad.top-pad.bottom)*(1-(v-minV)/(maxV-minV));
+      ctx.beginPath(); ctx.arc(x,y,3,0,2*Math.PI); ctx.fillStyle=ds.color; ctx.fill();
+    });
+  });
+}
+
+renderTrend();
+</script>
+
+
+</body></html>
